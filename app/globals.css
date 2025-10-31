@@ -131,9 +131,17 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  html {
+    color-scheme: light;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
 }
 
-/* Added custom animations for smooth transitions */
 @layer utilities {
   @keyframes fadeIn {
     from {

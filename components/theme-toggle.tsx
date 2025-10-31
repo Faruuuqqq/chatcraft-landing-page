@@ -10,21 +10,30 @@ export function ThemeToggle() {
 
   useEffect(() => {
     setMounted(true)
-    const isDarkMode = document.documentElement.classList.contains("dark")
-    setIsDark(isDarkMode)
+    const savedTheme = localStorage.getItem("theme")
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+    const shouldBeDark = savedTheme === "dark" || (savedTheme === null && prefersDark)
+
+    setIsDark(shouldBeDark)
+    if (shouldBeDark) {
+      document.documentElement.classList.add("dark")
+    } else {
+      document.documentElement.classList.remove("dark")
+    }
   }, [])
 
   const toggleTheme = () => {
     const html = document.documentElement
-    if (isDark) {
-      html.classList.remove("dark")
-      localStorage.setItem("theme", "light")
-      setIsDark(false)
-    } else {
+    const newIsDark = !isDark
+
+    if (newIsDark) {
       html.classList.add("dark")
       localStorage.setItem("theme", "dark")
-      setIsDark(true)
+    } else {
+      html.classList.remove("dark")
+      localStorage.setItem("theme", "light")
     }
+    setIsDark(newIsDark)
   }
 
   if (!mounted) return null
@@ -34,10 +43,14 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="rounded-full hover:bg-muted transition-colors"
+      className="rounded-full text-foreground hover:bg-muted transition-all duration-300"
       aria-label="Toggle theme"
     >
-      {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+      {isDark ? (
+        <Sun className="w-5 h-5 transition-transform duration-300 rotate-0" />
+      ) : (
+        <Moon className="w-5 h-5 transition-transform duration-300 rotate-0" />
+      )}
     </Button>
   )
 }
