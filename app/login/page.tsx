@@ -1,64 +1,80 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
 import { ArrowLeft, Mail, Lock } from "lucide-react"
 import Image from "next/image"
+import { useAuth } from "@/lib/auth-context"
+import { useToast } from "@/lib/toast-context"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState("")
+  const [errors, setErrors] = useState<{ email?: string; password?: string }>({})
+  const { login } = useAuth()
+  const { addToast } = useToast()
+  const router = useRouter()
+
+  const validateForm = () => {
+    const newErrors: typeof errors = {}
+
+    if (!email.trim()) {
+      newErrors.email = "Email harus diisi"
+    } else if (!email.includes("@")) {
+      newErrors.email = "Format email tidak valid"
+    }
+
+    if (!password) {
+      newErrors.password = "Password harus diisi"
+    } else if (password.length < 6) {
+      newErrors.password = "Password minimal 6 karakter"
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setError("")
+
+    if (!validateForm()) {
+      addToast("Mohon periksa kembali form Anda", "error")
+      return
+    }
+
     setIsLoading(true)
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-
-      if (!email || !password) {
-        setError("Email dan password harus diisi")
-        return
-      }
-
-      if (!email.includes("@")) {
-        setError("Email tidak valid")
-        return
-      }
-
-      // Success - redirect to dashboard
-      console.log("Login successful:", { email, password })
-      // In real app, redirect to dashboard
+      await login(email, password)
+      addToast("Login berhasil! Selamat datang kembali", "success")
+      router.push("/dashboard")
     } catch (err) {
-      setError("Terjadi kesalahan saat login")
+      addToast("Email atau password salah", "error")
     } finally {
       setIsLoading(false)
     }
   }
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+    <div className="min-h-screen bg-background flex items-center justify-center p-4 transition-colors duration-300">
       <div className="w-full max-w-md">
         {/* Back Button */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition"
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors duration-200"
         >
           <ArrowLeft className="w-4 h-4" />
           Kembali ke beranda
         </Link>
 
         {/* Card */}
-        <div className="bg-card border border-border rounded-2xl p-8 space-y-8">
+        <div className="bg-card border border-border rounded-2xl p-8 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
           {/* Header */}
           <div className="space-y-2 text-center">
             <div className="flex justify-center mb-4">
@@ -82,10 +98,16 @@ export default function LoginPage() {
                   type="email"
                   placeholder="nama@email.com"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10 bg-muted border-border text-foreground placeholder:text-muted-foreground"
+                  onChange={(e) => {
+                    setEmail(e.target.value)
+                    if (errors.email) setErrors({ ...errors, email: undefined })
+                  }}
+                  className={`pl-10 bg-muted border-border text-foreground placeholder:text-muted-foreground transition-colors duration-200 ${
+                    errors.email ? "border-red-500 focus:ring-red-500" : ""
+                  }`}
                 />
               </div>
+              {errors.email && <p className="text-sm text-red-500">{errors.email}</p>}
             </div>
 
             {/* Password */}
@@ -100,23 +122,22 @@ export default function LoginPage() {
                   type="password"
                   placeholder="••••••••"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 bg-muted border-border text-foreground placeholder:text-muted-foreground"
+                  onChange={(e) => {
+                    setPassword(e.target.value)
+                    if (errors.password) setErrors({ ...errors, password: undefined })
+                  }}
+                  className={`pl-10 bg-muted border-border text-foreground placeholder:text-muted-foreground transition-colors duration-200 ${
+                    errors.password ? "border-red-500 focus:ring-red-500" : ""
+                  }`}
                 />
               </div>
+              {errors.password && <p className="text-sm text-red-500">{errors.password}</p>}
             </div>
-
-            {/* Error Message */}
-            {error && (
-              <div className="p-3 bg-destructive/10 border border-destructive/20 rounded-lg">
-                <p className="text-sm text-destructive">{error}</p>
-              </div>
-            )}
 
             {/* Submit Button */}
             <Button
               type="submit"
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-200 hover:shadow-lg"
               disabled={isLoading}
             >
               {isLoading ? "Sedang masuk..." : "Masuk"}
@@ -137,7 +158,10 @@ export default function LoginPage() {
           <div className="text-center">
             <p className="text-muted-foreground text-sm">
               Belum punya akun?{" "}
-              <Link href="/register" className="text-primary hover:text-primary/90 font-semibold">
+              <Link
+                href="/register"
+                className="text-primary hover:text-primary/90 font-semibold transition-colors duration-200"
+              >
                 Daftar sekarang
               </Link>
             </p>
@@ -145,7 +169,7 @@ export default function LoginPage() {
 
           {/* Forgot Password */}
           <div className="text-center">
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition">
+            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">
               Lupa password?
             </a>
           </div>
@@ -154,11 +178,11 @@ export default function LoginPage() {
         {/* Footer Text */}
         <p className="text-center text-xs text-muted-foreground mt-8">
           Dengan masuk, Anda setuju dengan{" "}
-          <a href="#" className="hover:text-foreground transition">
+          <a href="#" className="hover:text-foreground transition-colors duration-200">
             Syarat Layanan
           </a>{" "}
           dan{" "}
-          <a href="#" className="hover:text-foreground transition">
+          <a href="#" className="hover:text-foreground transition-colors duration-200">
             Kebijakan Privasi
           </a>
         </p>
