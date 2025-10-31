@@ -59,7 +59,7 @@ export default function PricingSection() {
         {/* Section Header */}
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground text-balance">Harga yang Terjangkau</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Pilih paket yang sesuai dengan kebutuhan bisnis Anda. Tidak ada biaya tersembunyi.
           </p>
         </div>
@@ -82,11 +82,11 @@ export default function PricingSection() {
               )}
 
               <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
-              <p className="text-muted-foreground text-sm mb-6">{plan.description}</p>
+              <p className="text-foreground/70 text-sm mb-6">{plan.description}</p>
 
               <div className="mb-6">
                 <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                <span className="text-muted-foreground text-sm ml-2">{plan.period}</span>
+                <span className="text-foreground/60 text-sm ml-2">{plan.period}</span>
               </div>
 
               <Link href="/register" className="w-full block mb-8">
@@ -99,7 +99,7 @@ export default function PricingSection() {
                 {plan.features.map((feature, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground text-sm">{feature}</span>
+                    <span className="text-foreground/80 text-sm">{feature}</span>
                   </div>
                 ))}
               </div>

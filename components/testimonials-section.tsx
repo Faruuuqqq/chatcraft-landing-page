@@ -25,25 +25,28 @@ export default function TestimonialsSection() {
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Testimoni Pelanggan</h2>
-          <p className="text-gray-600">Apa kata pelanggan kami tentang ChatCraft</p>
+          <p className="text-foreground/70">Apa kata pelanggan kami tentang ChatCraft</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
+            <div
+              key={index}
+              className="bg-card border border-border p-6 rounded-lg shadow-sm transition-all duration-300 hover:border-primary/50"
+            >
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  <Star key={i} className="w-4 h-4 fill-accent text-accent" />
                 ))}
               </div>
-              <p className="text-gray-600 mb-4 italic">"{testimonial.content}"</p>
+              <p className="text-foreground/70 mb-4 italic">"{testimonial.content}"</p>
               <div>
                 <p className="font-bold text-foreground">{testimonial.name}</p>
-                <p className="text-sm text-gray-500">{testimonial.role}</p>
+                <p className="text-sm text-foreground/60">{testimonial.role}</p>
               </div>
             </div>
           ))}
