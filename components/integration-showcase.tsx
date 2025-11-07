@@ -1,36 +1,64 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { MessageCircle, Instagram, Facebook, Music } from "lucide-react"
+import { MessageCircle, Instagram, Music, Facebook, ShoppingCart, Sheet, Mail } from "lucide-react"
 
 const integrations = [
   {
     name: "WhatsApp",
-    description: "Kelola chat WhatsApp dengan AI chatbot",
+    description: "Blast Promo & AI Chatbot.",
     icon: MessageCircle,
     color: "text-green-500",
     bgColor: "bg-green-500/10",
   },
   {
     name: "Instagram",
-    description: "Respons otomatis untuk DM dan komentar Instagram",
+    description: "Auto-DM Komentar & Leads dari Story.",
     icon: Instagram,
     color: "text-pink-500",
     bgColor: "bg-pink-500/10",
   },
   {
     name: "TikTok",
-    description: "Respons otomatis untuk komentar dan DM TikTok",
+    description: "Otomatisasi Komentar & DM.",
     icon: Music,
     color: "text-black dark:text-white",
     bgColor: "bg-black/10 dark:bg-white/10",
   },
   {
     name: "Facebook",
-    description: "Integrasi dengan Facebook Messenger",
+    description: "Integrasi Facebook Messenger otomatis.",
     icon: Facebook,
     color: "text-blue-500",
     bgColor: "bg-blue-500/10",
+  },
+  {
+    name: "Shopee",
+    description: "Follow-up order & notifikasi otomatis.",
+    icon: ShoppingCart,
+    color: "text-red-500",
+    bgColor: "bg-red-500/10",
+  },
+  {
+    name: "Tokopedia",
+    description: "Follow-up order & notifikasi otomatis.",
+    icon: ShoppingCart,
+    color: "text-green-600",
+    bgColor: "bg-green-600/10",
+  },
+  {
+    name: "Google Sheets",
+    description: "Simpan data leads otomatis ke spreadsheet.",
+    icon: Sheet,
+    color: "text-blue-600",
+    bgColor: "bg-blue-600/10",
+  },
+  {
+    name: "Email Marketing",
+    description: "Kirim data pelanggan ke list email marketing.",
+    icon: Mail,
+    color: "text-orange-500",
+    bgColor: "bg-orange-500/10",
   },
 ]
 
@@ -40,12 +68,14 @@ export function IntegrationShowcase() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 animate-fade-in">
-            Platform yang Didukung
+            Satu Agensi, Seluruh Ekosistem Digital Anda
           </h2>
-          <p className="text-muted-foreground text-lg animate-fade-in">Otomatisasi di semua channel favorit Anda</p>
+          <p className="text-muted-foreground text-lg animate-fade-in max-w-2xl mx-auto">
+            Kami bukan hanya menghubungkan media sosial. Kami menghubungkan alur kerja bisnis Anda.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {integrations.map((integration, index) => {
             const Icon = integration.icon
             return (
@@ -66,6 +96,18 @@ export function IntegrationShowcase() {
               </Card>
             )
           })}
+        </div>
+
+        <div className="bg-card border border-border rounded-xl p-8 md:p-10">
+          <p className="text-muted-foreground leading-relaxed text-center text-sm md:text-base">
+            Ini adalah kekuatan agensi kami. Bayangkan: Seseorang komentar di Reels Instagram Anda, data mereka otomatis
+            masuk ke Google Sheets, lalu 3 hari kemudian mereka mendapat promo khusus via WhatsApp. Semua berjalan
+            otomatis. Anda tidak perlu pusing mengurus banyak vendor.{" "}
+            <span className="text-foreground font-semibold">
+              ChatCraft bertindak sebagai technical partner Anda untuk merancang dan mengelola semua alur otomatisasi
+              ini.
+            </span>
+          </p>
         </div>
       </div>
     </section>
