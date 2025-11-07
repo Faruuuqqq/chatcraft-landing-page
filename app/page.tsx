@@ -1,10 +1,10 @@
 import Header from "@/components/header"
 import Hero from "@/components/hero"
 import FeaturesShowcase from "@/components/features-showcase"
-import PricingSection from "@/components/pricing-section"
+// import PricingSection from "@/components/pricing-section"
+// import { PricingCalculator } from "@/components/pricing-calculator"
 import TestimonialsSection from "@/components/testimonials-section"
 import FAQSection from "@/components/faq-section"
-import { PricingCalculator } from "@/components/pricing-calculator"
 import { IntegrationShowcase } from "@/components/integration-showcase"
 import { ContactForm } from "@/components/contact-form"
 import CTA from "@/components/cta"
@@ -16,8 +16,8 @@ export default function Home() {
       <Header />
       <Hero />
       <FeaturesShowcase />
-      <PricingSection />
-      <PricingCalculator />
+      {/* <PricingSection /> */}
+      {/* <PricingCalculator /> */}
       <TestimonialsSection />
       <IntegrationShowcase />
       <FAQSection />

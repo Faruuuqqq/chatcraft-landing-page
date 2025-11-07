@@ -10,6 +10,9 @@ import { ThemeToggle } from "@/components/theme-toggle"
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
+  const whatsappLink =
+    "https://wa.me/628XXXXXXXXX?text=Halo%20ChatCraft,%20saya%20tertarik%20dengan%20layanan%20otomatisasi%20AI%20Anda."
+
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border transition-all duration-300">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
@@ -20,30 +23,25 @@ export default function Header() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="#features" className="text-foreground hover:text-primary transition-colors duration-300">
-            Fitur
+          <a href="#services" className="text-foreground hover:text-primary transition-colors duration-300">
+            Layanan
           </a>
-          <a href="#pricing" className="text-foreground hover:text-primary transition-colors duration-300">
-            Harga
+          <a href="#integrations" className="text-foreground hover:text-primary transition-colors duration-300">
+            Platform
           </a>
-          <a href="#" className="text-foreground hover:text-primary transition-colors duration-300">
-            Tentang
+          <a href="#faq" className="text-foreground hover:text-primary transition-colors duration-300">
+            FAQ
           </a>
         </div>
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
           <ThemeToggle />
-          <Link href="/login">
-            <Button variant="ghost" className="text-foreground hover:bg-muted transition-colors duration-300">
-              Masuk
-            </Button>
-          </Link>
-          <Link href="/register">
+          <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground transition-colors duration-300">
-              Daftar Gratis
+              Konsultasi Gratis
             </Button>
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -63,29 +61,21 @@ export default function Header() {
       {isOpen && (
         <div className="md:hidden border-t border-border bg-background transition-colors duration-300 animate-in fade-in slide-in-from-top-2 duration-300">
           <div className="px-4 py-4 space-y-4">
-            <a href="#features" className="block text-foreground hover:text-primary transition-colors duration-300">
-              Fitur
+            <a href="#services" className="block text-foreground hover:text-primary transition-colors duration-300">
+              Layanan
             </a>
-            <a href="#pricing" className="block text-foreground hover:text-primary transition-colors duration-300">
-              Harga
+            <a href="#integrations" className="block text-foreground hover:text-primary transition-colors duration-300">
+              Platform
             </a>
-            <a href="#" className="block text-foreground hover:text-primary transition-colors duration-300">
-              Tentang
+            <a href="#faq" className="block text-foreground hover:text-primary transition-colors duration-300">
+              FAQ
             </a>
-            <div className="flex flex-col gap-2 pt-4 border-t border-border">
-              <Link href="/login" className="w-full">
-                <Button
-                  variant="outline"
-                  className="w-full text-foreground border-border hover:bg-muted transition-colors duration-300 bg-transparent"
-                >
-                  Masuk
-                </Button>
-              </Link>
-              <Link href="/register" className="w-full">
+            <div className="pt-4 border-t border-border">
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full block">
                 <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-colors duration-300">
-                  Daftar Gratis
+                  Konsultasi Gratis
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

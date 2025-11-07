@@ -8,44 +8,44 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: "Apa itu ChatCraft?",
+      question: "Apa layanan yang ditawarkan ChatCraft?",
       answer:
-        "ChatCraft adalah platform AI chatbot yang dirancang khusus untuk UMKM Indonesia. Kami membantu bisnis Anda memberikan layanan pelanggan 24/7 dengan respons otomatis yang cerdas dan personal.",
+        "ChatCraft adalah agensi otomatisasi AI yang membantu UMKM Indonesia mengotomatisasi layanan pelanggan di Instagram, TikTok, dan WhatsApp. Kami menyediakan setup dan management untuk auto-reply, lead generation, dan customer service 24/7 yang dipowered oleh AI.",
     },
     {
-      question: "Berapa biaya untuk menggunakan ChatCraft?",
+      question: "Bagaimana model harganya?",
       answer:
-        "ChatCraft menawarkan berbagai paket harga yang fleksibel mulai dari Starter hingga Enterprise. Anda bisa memilih paket yang sesuai dengan kebutuhan bisnis Anda. Tidak ada biaya tersembunyi!",
+        "Kami menyediakan paket setup dan layanan bulanan yang fleksibel sesuai kebutuhan bisnis Anda. Harga berbeda-beda tergantung platform, jumlah channel, dan tingkat kustomisasi. Silakan hubungi tim kami via WhatsApp untuk konsultasi gratis dan penawaran khusus.",
     },
     {
-      question: "Apakah ChatCraft mudah diintegrasikan?",
+      question: "Platform apa saja yang bisa diintegrasikan?",
       answer:
-        "Ya! ChatCraft dapat diintegrasikan dengan mudah ke berbagai platform seperti WhatsApp, Instagram, Facebook, dan website Anda. Proses setup hanya membutuhkan beberapa menit.",
+        "Kami mendukung WhatsApp, Instagram, TikTok, dan Facebook Messenger. Setiap platform memiliki fitur otomatisasi yang disesuaikan dengan kemampuan dan keunikan setiap channel.",
     },
     {
-      question: "Apakah ada dukungan pelanggan 24/7?",
+      question: "Berapa lama proses setup?",
       answer:
-        "Tentu saja! Tim support kami siap membantu Anda kapan saja melalui chat, email, dan telepon. Kami berkomitmen untuk memberikan respons cepat dan solusi terbaik.",
+        "Proses setup biasanya membutuhkan 3-5 hari kerja tergantung kompleksitas kebutuhan Anda. Kami akan melakukan konsultasi mendalam terlebih dahulu untuk memastikan semua fitur sesuai dengan bisnis Anda.",
     },
     {
-      question: "Bagaimana dengan keamanan data pelanggan saya?",
+      question: "Apakah ada dukungan setelah setup?",
       answer:
-        "Keamanan data adalah prioritas utama kami. Semua data dienkripsi dan disimpan di server yang aman. Kami mematuhi standar keamanan internasional dan regulasi privasi data.",
+        "Tentu saja! Tim support kami siap membantu Anda kapan saja. Kami menyediakan training, troubleshooting, dan optimisasi berkelanjutan untuk memastikan ROI maksimal dari otomatisasi Anda.",
     },
     {
-      question: "Bisakah saya mencoba ChatCraft secara gratis?",
+      question: "Bagaimana dengan keamanan data pelanggan?",
       answer:
-        "Ya! Kami menawarkan trial gratis selama 14 hari tanpa perlu kartu kredit. Anda bisa mencoba semua fitur dan melihat sendiri bagaimana ChatCraft dapat membantu bisnis Anda.",
+        "Keamanan data adalah prioritas utama kami. Semua data dienkripsi dan disimpan di server yang aman. Kami mematuhi standar keamanan internasional dan regulasi privasi data Indonesia.",
     },
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section id="faq" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Pertanyaan yang Sering Diajukan</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Temukan jawaban untuk pertanyaan umum tentang ChatCraft dan bagaimana kami dapat membantu bisnis Anda
+            Temukan jawaban untuk pertanyaan umum tentang layanan otomatisasi AI ChatCraft
           </p>
         </div>
 
@@ -76,7 +76,9 @@ export default function FAQSection() {
         <div className="text-center mt-12">
           <p className="text-muted-foreground mb-4">Masih ada pertanyaan?</p>
           <a
-            href="#"
+            href="https://wa.me/628XXXXXXXXX?text=Halo%20ChatCraft,%20saya%20tertarik%20dengan%20layanan%20otomatisasi%20AI%20Anda."
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
           >
             Hubungi Tim Support Kami

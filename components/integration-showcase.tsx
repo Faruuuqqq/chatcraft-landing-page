@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { MessageCircle, Instagram, Facebook, Send } from "lucide-react"
+import { MessageCircle, Instagram, Facebook, Music } from "lucide-react"
 
 const integrations = [
   {
@@ -13,10 +13,17 @@ const integrations = [
   },
   {
     name: "Instagram",
-    description: "Respons otomatis untuk DM Instagram",
+    description: "Respons otomatis untuk DM dan komentar Instagram",
     icon: Instagram,
     color: "text-pink-500",
     bgColor: "bg-pink-500/10",
+  },
+  {
+    name: "TikTok",
+    description: "Respons otomatis untuk komentar dan DM TikTok",
+    icon: Music,
+    color: "text-black dark:text-white",
+    bgColor: "bg-black/10 dark:bg-white/10",
   },
   {
     name: "Facebook",
@@ -25,22 +32,17 @@ const integrations = [
     color: "text-blue-500",
     bgColor: "bg-blue-500/10",
   },
-  {
-    name: "Telegram",
-    description: "Bot otomatis untuk Telegram",
-    icon: Send,
-    color: "text-cyan-500",
-    bgColor: "bg-cyan-500/10",
-  },
 ]
 
 export function IntegrationShowcase() {
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8">
+    <section id="integrations" className="py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 animate-fade-in">Integrasi Platform</h2>
-          <p className="text-muted-foreground text-lg animate-fade-in">Hubungkan dengan platform favorit Anda</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 animate-fade-in">
+            Platform yang Didukung
+          </h2>
+          <p className="text-muted-foreground text-lg animate-fade-in">Otomatisasi di semua channel favorit Anda</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

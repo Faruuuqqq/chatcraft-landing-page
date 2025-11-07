@@ -2,9 +2,11 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Zap, MessageCircle, TrendingUp } from "lucide-react"
-import Link from "next/link"
 
 export default function Hero() {
+  const whatsappLink =
+    "https://wa.me/628XXXXXXXXX?text=Halo%20ChatCraft,%20saya%20tertarik%20dengan%20layanan%20otomatisasi%20AI%20Anda."
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-background pt-20">
       {/* Animated background elements */}
@@ -23,34 +25,36 @@ export default function Hero() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
               <Zap className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Powered by AI Technology</span>
+              <span className="text-sm font-medium text-primary">Agensi Otomatisasi AI</span>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight text-balance">
-                Chatbot AI yang{" "}
+                Agensi Otomatisasi AI{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                  Benar-Benar Kerja
+                  untuk UMKM Indonesia
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-balance max-w-lg">
-                Otomatisasi customer service Anda dengan AI yang memahami bahasa Indonesia. Tingkatkan penjualan hingga
-                300% dalam 30 hari.
+                Maksimalkan penjualan di Instagram, TikTok, dan WhatsApp. Biarkan AI membalas chat, mengumpulkan leads,
+                dan melayani pelanggan 24/7.
               </p>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link href="/register">
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground w-full sm:w-auto">
-                  Mulai Gratis Sekarang
+                  Mulai Konsultasi Gratis
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
-              </Link>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent">
-                Lihat Demo
-              </Button>
+              </a>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent">
+                  Hubungi Kami
+                </Button>
+              </a>
             </div>
 
             {/* Trust Indicators */}
@@ -99,12 +103,12 @@ export default function Hero() {
                   </div>
                   <div className="flex gap-2 justify-end">
                     <div className="bg-primary/20 rounded-lg p-3 max-w-xs">
-                      <p className="text-sm text-foreground">Berapa harga produk Anda?</p>
+                      <p className="text-sm text-foreground">Berapa biaya untuk Instagram automation?</p>
                     </div>
                   </div>
                   <div className="flex gap-2">
                     <div className="bg-muted rounded-lg p-3 max-w-xs">
-                      <p className="text-sm text-muted-foreground">Kami punya berbagai paket mulai dari...</p>
+                      <p className="text-sm text-muted-foreground">Kami punya berbagai paket yang fleksibel...</p>
                     </div>
                   </div>
                 </div>
