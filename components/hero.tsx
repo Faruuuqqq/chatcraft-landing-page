@@ -5,7 +5,7 @@ import { ArrowRight, Zap, MessageCircle, TrendingUp } from "lucide-react"
 
 export default function Hero() {
   const whatsappLink =
-    "https://wa.me/628XXXXXXXXX?text=Halo%20ChatCraft,%20saya%20tertarik%20dengan%20layanan%20otomatisasi%20AI%20Anda."
+    "https://wa.me/6285117552412?text=Halo%20ChatCraft,%20saya%20tertarik%20dengan%20layanan%20otomatisasi%20AI%20Anda."
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-background pt-20">

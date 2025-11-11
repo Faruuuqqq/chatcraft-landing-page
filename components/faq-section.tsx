@@ -76,7 +76,7 @@ export default function FAQSection() {
         <div className="text-center mt-12">
           <p className="text-muted-foreground mb-4">Masih ada pertanyaan?</p>
           <a
-            href="https://wa.me/628XXXXXXXXX?text=Halo%20ChatCraft,%20saya%20tertarik%20dengan%20layanan%20otomatisasi%20AI%20Anda."
+            href="https://wa.me/6285117552412?text=Halo%20ChatCraft,%20saya%20tertarik%20dengan%20layanan%20otomatisasi%20AI%20Anda."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"

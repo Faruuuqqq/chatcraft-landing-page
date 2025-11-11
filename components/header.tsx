@@ -11,13 +11,13 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   const whatsappLink =
-    "https://wa.me/628XXXXXXXXX?text=Halo%20ChatCraft,%20saya%20tertarik%20dengan%20layanan%20otomatisasi%20AI%20Anda."
+    "https://wa.me/6285117552412?text=Halo%20ChatCraft,%20saya%20tertarik%20dengan%20layanan%20otomatisasi%20AI%20Anda."
 
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border transition-all duration-300">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <Image src="/logo.svg" alt="ChatCraft" width={32} height={32} className="w-8 h-8" />
+          <Image src="/chatcraft-logo.svg" alt="ChatCraft" width={32} height={32} className="w-8 h-8" />
           <span className="font-bold text-xl text-foreground transition-colors duration-300">ChatCraft</span>
         </Link>
 

@@ -1,4 +1,4 @@
-import { Instagram, Music, MessageCircle } from "lucide-react"
+import { Instagram, TrendingUp, MessageCircle } from "lucide-react"
 
 const services = [
   {
@@ -14,7 +14,7 @@ const services = [
     ],
   },
   {
-    icon: Music,
+    icon: TrendingUp,
     title: "Otomatisasi TikTok",
     description: "Konversi audiens FYP Anda menjadi database pelanggan yang loyal.",
     features: [
