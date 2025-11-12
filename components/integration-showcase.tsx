@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { MessageCircle, Instagram, Music, Facebook, ShoppingCart, Sheet, Mail } from "lucide-react"
+import { MessageCircle, Instagram, Music, Facebook, Mail, FileSpreadsheet, ShoppingBag, Store } from "lucide-react"
 
 const integrations = [
   {
@@ -35,21 +35,21 @@ const integrations = [
   {
     name: "Shopee",
     description: "Follow-up order & notifikasi otomatis.",
-    icon: ShoppingCart,
+    icon: ShoppingBag,
     color: "text-red-500",
     bgColor: "bg-red-500/10",
   },
   {
     name: "Tokopedia",
     description: "Follow-up order & notifikasi otomatis.",
-    icon: ShoppingCart,
+    icon: Store,
     color: "text-green-600",
     bgColor: "bg-green-600/10",
   },
   {
     name: "Google Sheets",
     description: "Simpan data leads otomatis ke spreadsheet.",
-    icon: Sheet,
+    icon: FileSpreadsheet,
     color: "text-blue-600",
     bgColor: "bg-blue-600/10",
   },
@@ -78,6 +78,7 @@ export function IntegrationShowcase() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {integrations.map((integration, index) => {
             const Icon = integration.icon
+
             return (
               <Card
                 key={index}

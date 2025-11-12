@@ -1,4 +1,6 @@
-import { Instagram, TrendingUp, MessageCircle } from "lucide-react"
+"use client"
+
+import { MessageCircle, Instagram, Music } from "lucide-react"
 
 const services = [
   {
@@ -14,7 +16,7 @@ const services = [
     ],
   },
   {
-    icon: TrendingUp,
+    icon: Music,
     title: "Otomatisasi TikTok",
     description: "Konversi audiens FYP Anda menjadi database pelanggan yang loyal.",
     features: [
@@ -41,37 +43,38 @@ const services = [
 
 export default function FeaturesShowcase() {
   return (
-    <section id="services" className="py-20 md:py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground text-balance">
+    <section id="services" className="py-12 sm:py-20 md:py-32 bg-background">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="text-center space-y-3 sm:space-y-4 mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance">
             Katalog Layanan Otomatisasi AI Kami
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
             Pilih platform utama Anda dan biarkan tim kami yang mengurus setup-nya.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon
+
             return (
               <div
                 key={index}
-                className="group p-8 rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-lg transition-all duration-300 flex flex-col"
+                className="group p-6 sm:p-8 rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-lg transition-all duration-300 flex flex-col"
               >
                 {/* Icon and title */}
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors mb-4">
                   <Icon className="w-6 h-6 text-primary" />
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2">{service.title}</h3>
-                <p className="text-base text-muted-foreground mb-6 font-medium">{service.description}</p>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-2">{service.title}</h3>
+                <p className="text-sm sm:text-base text-muted-foreground mb-6 font-medium">{service.description}</p>
 
                 {/* Features list */}
-                <ul className="space-y-3 flex-1">
+                <ul className="space-y-2 sm:space-y-3 flex-1">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex gap-3 text-sm md:text-base text-muted-foreground">
+                    <li key={featureIndex} className="flex gap-3 text-xs sm:text-sm md:text-base text-muted-foreground">
                       <span className="text-primary font-bold flex-shrink-0 mt-0.5">✓</span>
                       <span className="leading-relaxed">{feature}</span>
                     </li>
