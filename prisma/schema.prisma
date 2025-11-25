@@ -1,0 +1,40 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Model User: Menyimpan data pemilik akun
+model User {
+  id        String   @id @default(cuid())
+  clerkId   String   @unique // ID dari Clerk (kunci penghubung)
+  email     String   @unique
+  name      String?
+  plan      String   @default("FREE") // FREE, PRO, ENTERPRISE
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relasi: Satu user bisa punya banyak chatbot
+  chatbots  Chatbot[]
+}
+
+// Model Chatbot: Menyimpan konfigurasi bot
+model Chatbot {
+  id          String   @id @default(cuid())
+  name        String
+  platform    String   // WHATSAPP, INSTAGRAM, dll
+  isActive    Boolean  @default(true)
+  settings    Json?    // Menyimpan konfigurasi detail (pesan sambutan, dll)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relasi: Chatbot ini milik siapa?
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+}

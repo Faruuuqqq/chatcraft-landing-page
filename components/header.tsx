@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
+// Import komponen Clerk
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -43,15 +45,26 @@ export default function Header() {
           </a>
         </div>
 
-        {/* Desktop CTA */}
+        {/* Desktop CTA - Update Bagian Ini */}
         <div className="hidden md:flex items-center gap-3 lg:gap-4">
           <ThemeToggle />
-          <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground transition-colors duration-300 text-sm lg:text-base px-4 lg:px-6 flex items-center gap-2">
-              <Send className="w-4 h-4" />
-              Konsultasi Gratis
-            </Button>
-          </a>
+          
+          {/* Jika user SUDAH login, tampilkan Dashboard & Foto Profil */}
+          <SignedIn>
+            <Link href="/dashboard">
+              <Button variant="ghost">Dashboard</Button>
+            </Link>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
+
+          {/* Jika user BELUM login, tampilkan tombol Masuk */}
+          <SignedOut>
+            <SignInButton mode="modal">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                Masuk / Daftar
+              </Button>
+            </SignInButton>
+          </SignedOut>
         </div>
 
         {/* Mobile Menu Button */}

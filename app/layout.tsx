@@ -1,14 +1,14 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import { AuthProvider } from "@/lib/auth-context"
-import { ToastProvider } from "@/lib/toast-context"
-import { ToastContainer } from "@/components/toast-container"
-import "./globals.css"
+import type React from "react";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { ClerkProvider } from "@clerk/nextjs";
+import { ToastProvider } from "@/lib/toast-context";
+import { ToastContainer } from "@/components/toast-container";
+import "./globals.css";
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const _geist = Geist({ subsets: ["latin"] });
+const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "ChatCraft - AI Chatbot untuk UMKM Indonesia",
@@ -41,39 +41,41 @@ export const metadata: Metadata = {
     description: "Tingkatkan layanan pelanggan dengan AI chatbot cerdas",
     images: ["https://chatcraft.app/og-image.png"],
   },
-    generator: 'v0.app'
-}
+  generator: "v0.app",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+    // Tambahkan komentar @ts-expect-error di bawah ini untuk membungkam error tipe
+    // @ts-expect-error Server Component for React 19
+    <ClerkProvider>
+      <html lang="id" suppressHydrationWarning>
+        <head>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
               try {
                 if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                   document.documentElement.classList.add('dark')
                 }
               } catch (e) {}
             `,
-          }}
-        />
-        <link rel="sitemap" href="/sitemap.xml" />
-      </head>
-      <body className={`font-sans antialiased`}>
-        <ToastProvider>
-          <AuthProvider>
+            }}
+          />
+          <link rel="sitemap" href="/sitemap.xml" />
+        </head>
+        <body className={`font-sans antialiased`}>
+          <ToastProvider>
             {children}
             <ToastContainer />
-          </AuthProvider>
-        </ToastProvider>
-        <Analytics />
-      </body>
-    </html>
-  )
+          </ToastProvider>
+          <Analytics />
+        </body>
+      </html>
+    </ClerkProvider>
+  );
 }
