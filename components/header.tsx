@@ -6,8 +6,6 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
-// Import komponen Clerk
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -49,22 +47,12 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-3 lg:gap-4">
           <ThemeToggle />
           
-          {/* Jika user SUDAH login, tampilkan Dashboard & Foto Profil */}
-          <SignedIn>
-            <Link href="/dashboard">
-              <Button variant="ghost">Dashboard</Button>
-            </Link>
-            <UserButton afterSignOutUrl="/" />
-          </SignedIn>
-
-          {/* Jika user BELUM login, tampilkan tombol Masuk */}
-          <SignedOut>
-            <SignInButton mode="modal">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                Masuk / Daftar
-              </Button>
-            </SignInButton>
-          </SignedOut>
+          <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground flex items-center gap-2">
+              <Send className="w-4 h-4" />
+              Mulai Konsultasi Gratis
+            </Button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -109,7 +97,7 @@ export default function Header() {
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full block">
                 <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-colors duration-300 text-sm flex items-center justify-center gap-2">
                   <Send className="w-4 h-4" />
-                  Konsultasi Gratis
+                  Mulai Konsultasi Gratis
                 </Button>
               </a>
             </div>
