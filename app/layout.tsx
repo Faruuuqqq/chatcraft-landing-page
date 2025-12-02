@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   creator: "ChatCraft",
   publisher: "ChatCraft",
   robots: "index, follow",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     type: "website",
     locale: "id_ID",
