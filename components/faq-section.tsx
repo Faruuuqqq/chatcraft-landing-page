@@ -2,43 +2,18 @@
 
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
-
-// Pastikan ada kata kunci 'export const'
-export const faqs = [
-  {
-    question: "Apa layanan yang ditawarkan ChatCraft?",
-    answer: "ChatCraft adalah agensi otomatisasi AI yang membantu UMKM Indonesia mengotomatisasi layanan pelanggan di Instagram, TikTok, dan WhatsApp. Kami menyediakan setup dan management untuk auto-reply, lead generation, dan customer service 24/7 yang dipowered oleh AI.",
-  },
-  {
-    question: "Bagaimana model harganya?",
-    answer: "Kami menyediakan paket setup dan layanan bulanan yang fleksibel sesuai kebutuhan bisnis Anda. Harga berbeda-beda tergantung platform, jumlah channel, dan tingkat kustomisasi. Silakan hubungi tim kami via WhatsApp untuk konsultasi gratis dan penawaran khusus.",
-  },
-  {
-    question: "Platform apa saja yang bisa diintegrasikan?",
-    answer: "Kami mendukung WhatsApp, Instagram, TikTok, dan Facebook Messenger. Setiap platform memiliki fitur otomatisasi yang disesuaikan dengan kemampuan dan keunikan setiap channel.",
-  },
-  {
-    question: "Berapa lama proses setup?",
-    answer: "Proses setup biasanya membutuhkan 3-5 hari kerja tergantung kompleksitas kebutuhan Anda. Kami akan melakukan konsultasi mendalam terlebih dahulu untuk memastikan semua fitur sesuai dengan bisnis Anda.",
-  },
-  {
-    question: "Apakah ada dukungan setelah setup?",
-    answer: "Tentu saja! Tim support kami siap membantu Anda kapan saja. Kami menyediakan training, troubleshooting, dan optimisasi berkelanjutan untuk memastikan ROI maksimal dari otomatisasi Anda.",
-  },
-  {
-    question: "Bagaimana dengan keamanan data pelanggan?",
-    answer: "Keamanan data adalah prioritas utama kami. Semua data dienkripsi dan disimpan di server yang aman. Kami mematuhi standar keamanan internasional dan regulasi privasi data Indonesia.",
-  },
-];
+import { faqs } from "@/lib/data" // Import data dari file terpisah
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
-  // Variabel faqs di sini dihapus karena sudah dipindah ke atas
+  // Pastikan variabel 'faqs' TIDAK dideklarasikan ulang di sini
 
   return (
     <section id="faq" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
+        {/* ... (kode header section sama seperti sebelumnya) ... */}
+        
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Pertanyaan yang Sering Diajukan</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -47,7 +22,8 @@ export default function FAQSection() {
         </div>
 
         <div className="max-w-3xl mx-auto space-y-4">
-          {faqs.map((faq, index) => (
+          {/* Tambahkan fallback (faqs || []) untuk keamanan */}
+          {(faqs || []).map((faq, index) => (
             <div key={index} className="bg-card border border-border rounded-lg overflow-hidden transition-all">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
@@ -70,7 +46,7 @@ export default function FAQSection() {
           ))}
         </div>
 
-        {/* ... sisa kode return (tombol hubungi support) tetap sama ... */}
+        {/* ... (kode footer section sama seperti sebelumnya) ... */}
         <div className="text-center mt-12">
           <p className="text-muted-foreground mb-4">Masih ada pertanyaan?</p>
           <a
