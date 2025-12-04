@@ -44,9 +44,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  icons: {
-    icon: "/favicon.svg",
-    apple: "/apple-icon.svg",
+icons: {
+    // 1. Icon Utama: Gunakan SVG agar tajam di semua ukuran browser/Android
+    // Pastikan file 'chatcraft-logo.svg' rasio-nya KOTAK (Square)
+    icon: [
+      { url: "/chatcraft-logo.svg", type: "image/svg+xml" },
+    ],
+    
+    // 2. Apple Touch Icon: WAJIB PNG (Apple tidak support SVG untuk ini)
+    // Ukuran minimal saran: 180x180 px
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     type: "website",
