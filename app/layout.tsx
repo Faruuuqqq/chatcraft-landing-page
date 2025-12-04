@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ToastProvider } from "@/lib/toast-context";
 import { ToastContainer } from "@/components/toast-container";
-import "styles/globals.css";
+import "./globals.css";
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
