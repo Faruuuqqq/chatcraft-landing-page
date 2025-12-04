@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react"
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
-  const faqs = [
+  export const faqs = [
     {
       question: "Apa layanan yang ditawarkan ChatCraft?",
       answer:

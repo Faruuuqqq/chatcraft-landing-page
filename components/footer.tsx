@@ -97,10 +97,10 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-background/70 text-xs sm:text-sm">
             <p>&copy; 2025 ChatCraft. Semua hak dilindungi.</p>
             <div className="flex gap-4 sm:gap-6 flex-wrap justify-center">
-              <a href="#" className="hover:text-background transition">
+              <a href="/privacy-policy" className="hover:text-background transition">
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-background transition">
+              <a href="/terms" className="hover:text-background transition">
                 Terms of Service
               </a>
               <a href="#" className="hover:text-background transition">
