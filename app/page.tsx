@@ -7,32 +7,30 @@ import { IntegrationShowcase } from "@/components/integration-showcase"
 import { ContactForm } from "@/components/contact-form"
 import CTA from "@/components/cta"
 import Footer from "@/components/footer"
-// Pastikan path import ini benar dan sesuai dengan lokasi file data Anda
 import { faqs } from "@/lib/data" 
 
-export default function Home() {
-  // SOLUSI: Pindahkan logika ini ke DALAM function component
-  // Tambahkan 'faqs || []' untuk mencegah error jika data undefined
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": (faqs || []).map((item) => ({
-      "@type": "Question",
-      "name": item.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": item.answer,
-      },
-    })),
-  };
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((item) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer,
+    },
+  })),
+};
 
+export default function Home() {
   return (
     <main className="min-h-screen bg-background">
+      {/* Inject Schema FAQ */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-
+      
       <Header />
       <Hero />
       <FeaturesShowcase />

@@ -1,55 +1,59 @@
-export default function TermsPage() {
+// app/terms/page.tsx
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+
+export default function TermsOfService() {
   return (
-    <div className="container mx-auto px-4 py-16 max-w-2xl">
-      <h1 className="text-4xl font-bold mb-8">Syarat dan Ketentuan</h1>
-      <p className="mb-4">
-        Selamat datang di ChatCraft. Dengan mengakses atau menggunakan layanan kami, Anda menyetujui
-        untuk terikat oleh Syarat dan Ketentuan ini.
-      </p>
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="container mx-auto px-4 md:px-6 py-12 md:py-24">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold mb-6">Terms of Service</h1>
+          <div className="space-y-6 text-muted-foreground">
+            <p>Last updated: December 04, 2025</p>
 
-      <h2 className="text-2xl font-semibold mb-4">Penggunaan Layanan</h2>
-      <p className="mb-4">
-        Layanan kami disediakan untuk membantu UMKM mengotomatisasi layanan pelanggan melalui
-        platform media sosial dan pesan instan. Anda setuju untuk menggunakan layanan kami hanya
-        untuk tujuan yang sah dan sesuai dengan Syarat dan Ketentuan ini.
-      </p>
+            <h2 className="text-2xl font-semibold text-foreground pt-4">1. Terms</h2>
+            <p>
+              By accessing the website at{' '}
+              <Link href="/" className="text-primary hover:underline">https://chatcraft.com</Link>, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law.
+            </p>
 
-      <h2 className="text-2xl font-semibold mb-4">Akun Pengguna</h2>
-      <p className="mb-4">
-        Anda mungkin perlu membuat akun untuk mengakses fitur tertentu dari layanan kami.
-        Anda bertanggung jawab untuk menjaga kerahasiaan informasi akun Anda dan untuk semua
-        aktivitas yang terjadi di bawah akun Anda.
-      </p>
+            <h2 className="text-2xl font-semibold text-foreground pt-4">2. Use License</h2>
+            <p>
+              Permission is granted to temporarily download one copy of the materials (information or software) on ChatCraft's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+            </p>
+            <ul className="list-disc list-inside space-y-2 pl-4">
+              <li>modify or copy the materials;</li>
+              <li>use the materials for any commercial purpose, or for any public display (commercial or non-commercial);</li>
+              <li>attempt to decompile or reverse engineer any software contained on ChatCraft's website;</li>
+              <li>remove any copyright or other proprietary notations from the materials; or</li>
+              <li>transfer the materials to another person or "mirror" the materials on any other server.</li>
+            </ul>
+            <p>
+              This license shall automatically terminate if you violate any of these restrictions and may be terminated by ChatCraft at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format.
+            </p>
 
-      <h2 className="text-2xl font-semibold mb-4">Konten Pengguna</h2>
-      <p className="mb-4">
-        Anda bertanggung jawab penuh atas konten apa pun yang Anda unggah, posting, atau
-        sediakan melalui layanan kami. Anda menjamin bahwa Anda memiliki hak yang diperlukan
-        untuk menggunakan dan menyebarkan konten tersebut.
-      </p>
+            <h2 className="text-2xl font-semibold text-foreground pt-4">3. Disclaimer</h2>
+            <p>
+              The materials on ChatCraft's website are provided on an 'as is' basis. ChatCraft makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+            </p>
+            
+            <h2 className="text-2xl font-semibold text-foreground pt-4">4. Limitations</h2>
+            <p>
+              In no event shall ChatCraft or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on ChatCraft's website, even if ChatCraft or a ChatCraft authorized representative has been notified orally or in writing of the possibility of such damage.
+            </p>
 
-      <h2 className="text-2xl font-semibold mb-4">Batasan Tanggung Jawab</h2>
-      <p className="mb-4">
-        ChatCraft tidak akan bertanggung jawab atas kerugian tidak langsung, insidental,
-        khusus, konsekuensial, atau hukuman, termasuk namun tidak terbatas pada, kehilangan
-        keuntungan, data, penggunaan, niat baik, atau kerugian tidak berwujud lainnya,
-        yang dihasilkan dari (i) akses Anda ke atau penggunaan atau ketidakmampuan untuk
-        mengakses atau menggunakan layanan; (ii) perilaku atau konten pihak ketiga mana pun
-        pada layanan; (iii) konten yang diperoleh dari layanan; dan (iv) akses, penggunaan,
-        atau perubahan transmisi atau konten Anda yang tidak sah, baik berdasarkan garansi,
-        kontrak, kesalahan (termasuk kelalaian), atau teori hukum lainnya, baik kami telah
-        diberi tahu tentang kemungkinan kerusakan tersebut atau tidak.
-      </p>
-
-      <h2 className="text-2xl font-semibold mb-4">Perubahan pada Syarat dan Ketentuan Ini</h2>
-      <p className="mb-4">
-        Kami dapat merevisi Syarat dan Ketentuan ini dari waktu ke waktu. Versi terbaru
-        akan selalu diposting di situs web kami. Dengan terus mengakses atau menggunakan
-        layanan kami setelah revisi tersebut berlaku, Anda setuju untuk terikat oleh
-        syarat yang direvisi.
-      </p>
-
-      <p className="text-sm text-muted-foreground mt-8">Terakhir diperbarui: 4 Desember 2025</p>
+            <h2 className="text-2xl font-semibold text-foreground pt-4">5. Governing Law</h2>
+            <p>
+              These terms and conditions are governed by and construed in accordance with the laws of Indonesia and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.
+            </p>
+          </div>
+          <div className="text-center mt-12">
+            <Link href="/">
+              <Button>Back to Home</Button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

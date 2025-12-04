@@ -2,12 +2,10 @@
 
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
-import { faqs } from "@/lib/data" // Import data dari file terpisah
+import { faqs } from "@/lib/data"
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
-
-  // Pastikan variabel 'faqs' TIDAK dideklarasikan ulang di sini
 
   return (
     <section id="faq" className="py-16 md:py-24 bg-background">

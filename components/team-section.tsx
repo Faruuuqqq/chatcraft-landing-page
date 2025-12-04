@@ -6,17 +6,17 @@ export default function TeamSection() {
     {
       name: "Rivaldi Natanael",
       title: "CEO",
-      image: "/professional-man-ceo.jpg",
+      image: "/placeholder-user.jpg",
     },
     {
       name: "Dian Suryaning Ratri",
       title: "CMO",
-      image: "/professional-woman-cmo.jpg",
+      image: "/placeholder-user.jpg",
     },
     {
       name: "Achmad Faruq Mahdison",
       title: "CTO",
-      image: "/professional-man-cto.jpg",
+      image: "/placeholder-user.jpg",
     },
   ]
 
